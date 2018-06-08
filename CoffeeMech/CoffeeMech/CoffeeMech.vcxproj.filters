@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CoffeMachine.h">
+    <ClInclude Include="commC2P.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="commC2P.h">
+    <ClInclude Include="CoffeeMachine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

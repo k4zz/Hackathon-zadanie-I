@@ -8,26 +8,27 @@
 class commC2P
 {
 private:
+	
+	std::ifstream inCommFile;
+	std::ofstream outCommFile;	
 
-	std::ofstream commFile;
-
-	enum Action
-	{
-		coffeeCountInc,
-        highestCoffeeCount
-	};
-
-	std::string action;
+	
 
 public:
 
 	commC2P();
 	~commC2P();
 
-	void readCommFile();
-	void writeCommFile();
+	enum Action
+	{
+		coffeeCountInc,
+		highestCoffeeCount
+	};
 
-
+	std::string action;
+	std::string readCommFile();
+	void writeCommFile(Action act);
+	void writeCommFile(Action act, int id);
 };
 
 #endif

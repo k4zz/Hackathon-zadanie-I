@@ -1,5 +1,7 @@
-#include "CoffeMachine.h"
 #include <iostream>
+
+#include "commC2P.h"
+#include "CoffeeMachine.h"
 
 CoffeeMachine::CoffeeMachine()
 {
@@ -29,12 +31,16 @@ void CoffeeMachine::makeCoffee()
 	}
 	else
 	{
-		sendFaceID();
+		sendFaceID(1);
 	}
 }
 
-void CoffeeMachine::sendFaceID()
+void CoffeeMachine::sendFaceID(int ID)
 {
+	commC2P comm;
+	comm.writeCommFile(commC2P::Action::coffeeCountInc, ID);
+	std::string temp = comm.readCommFile();
+	
 }
 
 void CoffeeMachine::sendMaintenanceReq()

@@ -8,6 +8,7 @@ private:
 	int counterOfCoffee;
 	int maintenanceInterval;
 	int currentUserID;
+	
 
 public:
 
@@ -16,7 +17,7 @@ public:
 
 	bool isMaintenanceReq();
 	void makeCoffee();
-	void sendFaceID();
+	void sendFaceID(int ID);
 	void sendMaintenanceReq();
 
 	int getCounterOfCoffee();
