@@ -1,0 +1,6 @@
+﻿  main.cpp
+  commC2P.cpp
+  CoffeeMachine.cpp
+  Generating Code...
+e:\_programing\hackathon\hackathon-zadanie-i\coffeemech\coffeemech\coffeemachine.cpp(22): warning C4715: 'CoffeeMachine::isMaintenanceReq': not all control paths return a value
+  CoffeeMech.vcxproj -> E:\_PROGRAMING\Hackathon\Hackathon-zadanie-I\CoffeeMech\Debug\CoffeeMech.exe
