@@ -49,27 +49,36 @@ def choosePerson(blank):
             if coffee_counts[i] == max(coffee_counts):
                 maint_ID.append(IDs[i])
                 maint_counts.append(users[IDs[i]][3])
-        max_maint_count = maint_counts.count(max(maint_counts))
-        if max_maint_count == 1:
-            mail = users[maint_ID[maint_counts.index(max(maint_counts))]][4]
+        min_maint_count = maint_counts.count(min(maint_counts))
+        if min_maint_count == 1:
+            mail = users[maint_ID[maint_counts.index(min(maint_counts))]][4]
         else:
             date_ID = []
             date_counts = []
             for i in range(len(maint_counts)):
-                if maint_counts[i] == max(maint_counts):
+                if maint_counts[i] == min(maint_counts):
                     date_ID.append(maint_ID[i])
                     date_counts.append(users[maint_ID[i]][5])
-            max_date_count = max(date_counts)
-            mail = users[date_ID[date_counts.index(max(date_counts))]][4]
+            mail = users[date_ID[date_counts.index(min(date_counts))]][4]
             
     return mail
+
+def maintDone(attr):
+    ID = int(attr[0])
+    maint_date = int(attr[1])
+    data.maint_done(ID, maint_date)
+    data.reset_coffee_count(ID)
+    data.incr_maint_count(ID)
+    
+    return 'DONE'
 
 functions = {'coffeeCountInc': coffeeCountInc,
              'maintCountInc': maintCountInc,
              'coffeeCountReset': coffeeCountReset,
              'maintCountReset': maintCountReset,
              'addPerson': addPerson,
-             'choosePerson': choosePerson}
+             'choosePerson': choosePerson,
+             'maintDone': maintDone}
 
 def call_func(command):
     method = command[0]

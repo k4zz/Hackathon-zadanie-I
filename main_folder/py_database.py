@@ -56,8 +56,12 @@ class Database:
         self.push_base()
 
     def add_user(self, surname, name, email):
-        ID = max(self._users.keys())
+        ID = max(self._users.keys()) + 1
         self._users[ID] = [surname, name, 0, 0, email, ID]
+        self.push_base()
+        
+    def maint_done(self, ID, maint_date):
+        self._users[ID][5] = maint_date
         self.push_base()
         
 #new = Database()
