@@ -12,15 +12,13 @@ CoffeeMachine::CoffeeMachine()
 
 CoffeeMachine::~CoffeeMachine()
 {
-
 }
 
 bool CoffeeMachine::isMaintenanceReq()
 {
-	if (counterOfCoffee % maintenanceInterval == 0)
-	{
-		return true;
-	}
+	bool temp;
+	temp = (counterOfCoffee % maintenanceInterval == 0) ?  true : false;
+	return temp;
 }
 
 void CoffeeMachine::makeCoffee()
@@ -31,7 +29,8 @@ void CoffeeMachine::makeCoffee()
 	}
 	else
 	{
-		sendFaceID(1);
+		sendFaceID(currentUserID);
+		counterOfCoffee++;
 	}
 }
 
@@ -43,7 +42,8 @@ void CoffeeMachine::sendFaceID(int ID)
 
 void CoffeeMachine::sendMaintenanceReq()
 {
-
+	comm.writeCommFile(commC2P::Action::choosePerson);
+	std::string temp = comm.readCommFile();
 }
 
 int CoffeeMachine::getCounterOfCoffee()
@@ -64,5 +64,10 @@ int CoffeeMachine::getMaintenanceInterval()
 void CoffeeMachine::setMaintenanceInterval(int num)
 {
 	maintenanceInterval = num;
+}
+
+void CoffeeMachine::setCurrentUserID(int faceID)
+{
+	currentUserID = faceID;
 }
 

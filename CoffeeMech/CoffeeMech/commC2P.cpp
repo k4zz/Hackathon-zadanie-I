@@ -43,8 +43,8 @@ void commC2P::writeCommFile(commC2P::Action act)
 	std::string temp;
 	switch (act)
 	{
-	case commC2P::highestCoffeeCount:
-		temp = "highestCoffeeCount ";
+	case commC2P::choosePerson:
+		temp = "choosePerson ";
 		break;
 	default:
 		break;
@@ -65,6 +65,36 @@ void commC2P::writeCommFile(commC2P::Action act, int id)
 	{
 	case commC2P::coffeeCountInc:
 		temp = "coffeeCountInc " + strID + " ";
+		break;
+	case commC2P::maintCountInc:
+		temp = "maintCountInc " + strID + " ";
+		break;
+	case commC2P::coffeeCountReset:
+		temp = "coffeeCountReset " + strID + " ";
+		break;
+	case commC2P::maintCountReset:
+		temp = "maintCountReset " + strID + " ";
+		break;
+	default:
+		break;
+	}
+
+	outCommFile << temp;
+
+	outCommFile.close();
+	std::rename("_C2P.txt", "C2P.txt");
+}
+
+void commC2P::writeCommFile(commC2P::Action act, std::string surname, std::string name, std::string email)
+{
+	outCommFile.open("_C2P.txt", std::ofstream::trunc);
+
+	std::string temp;
+
+	switch (act)
+	{
+	case commC2P::addPerson:
+		temp = "addPerson " + surname + " " + name + " " + email + " ";
 		break;
 	default:
 		break;

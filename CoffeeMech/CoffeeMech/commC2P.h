@@ -20,13 +20,18 @@ public:
 	enum Action
 	{
 		coffeeCountInc,
-		highestCoffeeCount
+		maintCountInc,
+		coffeeCountReset,
+		maintCountReset,
+		addPerson,
+		choosePerson
 	};
 
 	std::string action;
 	std::string readCommFile();
 	void writeCommFile(Action act);
 	void writeCommFile(Action act, int id);
+	void writeCommFile(Action act, std::string surname, std::string name, std::string email);
 };
 
 #endif

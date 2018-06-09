@@ -30,6 +30,8 @@ public:
 	int getMaintenanceInterval();
 	void setMaintenanceInterval(int num);
 
+	void setCurrentUserID(int faceID);
+
 };
 
 #endif
