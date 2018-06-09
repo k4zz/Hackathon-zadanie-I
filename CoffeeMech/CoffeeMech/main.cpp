@@ -4,8 +4,14 @@
 int main()
 {
 	CoffeeMachine coffeeMachine;
-
-	coffeeMachine.makeCoffee();
+	while (1)
+	{
+		if (std::cin.ignore())
+		{
+			coffeeMachine.makeCoffee();
+			std::cout << "Coffee made!" << std::endl;
+		}
+	}
 
 	system("pause");
 

@@ -1,6 +1,8 @@
 #ifndef COFFEEMACHINE_H
 #define COFFEEMACHINE_H
 
+#include "commC2P.h"
+
 class CoffeeMachine
 {
 private:
@@ -8,6 +10,8 @@ private:
 	int counterOfCoffee;
 	int maintenanceInterval;
 	int currentUserID;
+
+	commC2P comm;
 	
 
 public:

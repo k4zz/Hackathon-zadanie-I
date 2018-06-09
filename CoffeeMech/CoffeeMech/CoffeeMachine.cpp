@@ -36,11 +36,9 @@ void CoffeeMachine::makeCoffee()
 }
 
 void CoffeeMachine::sendFaceID(int ID)
-{
-	commC2P comm;
+{	
 	comm.writeCommFile(commC2P::Action::coffeeCountInc, ID);
-	std::string temp = comm.readCommFile();
-	
+	std::string temp = comm.readCommFile();	
 }
 
 void CoffeeMachine::sendMaintenanceReq()

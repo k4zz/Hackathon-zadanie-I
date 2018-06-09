@@ -60,11 +60,11 @@ void commC2P::writeCommFile(commC2P::Action act, int id)
 	outCommFile.open("_C2P.txt", std::ofstream::trunc);
 
 	std::string temp;
+	std::string strID = std::to_string(id);
 	switch (act)
 	{
 	case commC2P::coffeeCountInc:
-		temp = "coffeeCountInc " + id;
-		temp += " ";
+		temp = "coffeeCountInc " + strID + " ";
 		break;
 	default:
 		break;

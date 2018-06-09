@@ -12,8 +12,6 @@ private:
 	std::ifstream inCommFile;
 	std::ofstream outCommFile;	
 
-	
-
 public:
 
 	commC2P();
