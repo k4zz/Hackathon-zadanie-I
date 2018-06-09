@@ -24,11 +24,17 @@ def maintCountReset(ID):
     data.reset_maint_count(ID)
     return 'DONE'
     
-def addPerson(surname, name, email):
+def addPerson(user):
+    surname = user[0]
+    name = user[1]
+    email = user[2]
     data.add_user(surname, name, email)
     return 'DONE'
     
 def choosePerson():
+#    users = data.get_users()
+#    coffee_counts = []
+#    for i in 
     return None
 
 functions = {'coffeeCountInc': coffeeCountInc,

@@ -20,7 +20,8 @@ class Database:
                     entry[2],
                     int(entry[3]),
                     int(entry[4]),
-                    entry[5]]
+                    entry[5],
+                    int(entry[6])]
             self._users[temp[0]] = temp[1:]
 
     def get_users(self):
@@ -29,12 +30,13 @@ class Database:
     def push_base(self):
         with open('database.txt', 'w') as file:
             for ID in self._users.keys():
-                temp = '{0};{1};{2};{3};{4};{5};\n'.format(ID,
+                temp = '{0};{1};{2};{3};{4};{5};{6};\n'.format(ID,
                                                             self._users[ID][0],
                                                             self._users[ID][1],
                                                             self._users[ID][2],
                                                             self._users[ID][3],
-                                                            self._users[ID][4])
+                                                            self._users[ID][4],
+                                                            self._users[ID][5])
                 file.write(temp)
 
     def incr_coffee_count(self, ID):
@@ -54,7 +56,9 @@ class Database:
         self.push_base()
 
     def add_user(self, surname, name, email):
-        self._users[max(self._users.keys())] = [surname, name, 0, 0, email]
+        ID = max(self._users.keys())
+        self._users[ID] = [surname, name, 0, 0, email, ID]
+        self.push_base()
         
 #new = Database()
 #new_data = new.get_users()
